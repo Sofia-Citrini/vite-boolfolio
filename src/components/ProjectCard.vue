@@ -2,12 +2,19 @@
     <div class="card" style="width: 18rem; height: 20rem;">
         <img :src="url + 'storage/' + project.image" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">{{ project.title }}</h5>
-            <p class="card-text">{{ project.description }}</p>
+            <!-- <h5 class="card-title">{{ project.title }}</h5> -->
+            <router-link :to="{name: 'projects.show', params: {id:project.id}}" class="card-title h5 mb-4">
+                {{ project.title }}
+            </router-link>
+
+            <p class="card-text "><small>{{ project.description }}</small></p>
+
             <div class="badge text-bg-primary my-3">{{ project.type?.name }}</div>
+
             <div v-if="project.technologies" v-for="tech in project.technologies" class="my-3 badge rounded-pill text-bg-danger">
                 {{ tech.name  }}
             </div>
+
             <a href="" class="my-3">{{ project.link_github }}</a>
         </div>
     </div>
