@@ -4,6 +4,8 @@
 
 <template>
   <div>Boolpress</div>
+
+  <router-view></router-view>
   
 </template>
 
