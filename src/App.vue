@@ -1,11 +1,27 @@
 <script>
+import Navbar from "./components/Navbar.vue";
 
+export default {
+  components:{Navbar},
+  data() {
+    return {
+      
+    }
+  },
+}
 </script>
 
 <template>
-  <div>Boolpress</div>
+  
+  <header>
+    <Navbar></Navbar>
+  </header>
 
-  <router-view></router-view>
+  <main>
+    <div class="container">
+      <router-view></router-view>
+    </div>
+  </main>
   
 </template>
 
