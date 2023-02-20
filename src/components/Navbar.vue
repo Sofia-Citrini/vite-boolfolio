@@ -32,6 +32,10 @@ export default {
                 {
                     label:'Projects',
                     route: 'projects.index'
+                },
+                {
+                    label:'Contacts',
+                    route: 'contacts'
                 }
             ]
         }
