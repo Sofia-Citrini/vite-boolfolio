@@ -2,7 +2,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10 d-flex my-5">
             <div class="img-container">
-                <img :src="url + 'storage/' + project.image" >
+                <img :src="store.url + 'storage/' + project.image" >
             </div>
             
             
@@ -14,7 +14,7 @@
 
                 <div class="py-3" v-show="project.type">
                     <h6>Tipologia:</h6>
-                    <div class="badge text-bg-secondary">{{project.type.name}}</div>
+                    <div class="badge text-bg-secondary">{{project.type?.name}}</div>
                 </div>
 
                 <div class="py-3" v-show="project.technologies">
@@ -30,18 +30,19 @@
 
 <script>
 import axios from 'axios';
+import { store } from '../../store';
 
 export default {
     name:'ProjectsShow',
     data() {
         return {
-            url:'http://127.0.0.1:8000/',
+            store,
             project: {}
         }
     },
     methods: {
         fetchProject (){
-            axios.get(this.url + 'api/projects/' + this.$route.params.id)
+            axios.get(store.url + 'api/projects/' + this.$route.params.id)
                 .then((resp) => {
                     console.log(resp.data);
                     this.project = resp.data;

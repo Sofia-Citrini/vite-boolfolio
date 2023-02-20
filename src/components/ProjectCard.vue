@@ -1,6 +1,6 @@
 <template>
-    <div class="card" style="width: 18rem; height: 20rem;">
-        <img :src="url + 'storage/' + project.image" class="card-img-top" alt="...">
+    <div class="card h-100">
+        <img :src="store.url + 'storage/' + project.image" class="card-img-top" alt="...">
         <div class="card-body">
             <!-- <h5 class="card-title">{{ project.title }}</h5> -->
             <router-link :to="{name: 'projects.show', params: {id:project.id}}" class="card-title h5 mb-4">
@@ -21,15 +21,19 @@
 </template>
 
 <script>
+import {store} from "../store";
+
 export default {
     props: {
         project: {
-            type:Object
+            type:Object,
+            required: true,
+            default: ()=>({})
         }
     },
     data() {
         return {
-            url:'http://127.0.0.1:8000/'
+            store
         }
     },
         
@@ -41,7 +45,7 @@ export default {
     overflow-y: auto;
 
     img {
-        height: 8rem;
+        height: 15rem;
         object-fit: cover;
     }
 }
